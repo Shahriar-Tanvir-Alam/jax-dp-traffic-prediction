@@ -22,3 +22,6 @@ raw_data/
 
 # macOS
 .DS_Store
+
+# Large pretrained/saved model files
+models/
