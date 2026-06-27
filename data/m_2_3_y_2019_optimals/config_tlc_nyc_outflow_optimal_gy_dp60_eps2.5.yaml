@@ -1,0 +1,84 @@
+method: grid
+name: gy_dp60-outflow-m2-3-optimal
+metric:
+  name: best_val_loss
+  goal: minimize
+parameters:
+  dataset: 
+    value: "tlc_nyc_outflow"
+  company:
+    value: "gy_dp60_eps2.5"
+  datapath: 
+    value: "../data/tlc_nyc/gy/"
+  learning_rate:
+    value: 0.001
+  hidden:  
+    value: 0
+  val_step: 
+    value: 50
+  epochs: 
+    value: 10000
+  optimizer: 
+    value:  "adam"
+  train_ratio: 
+    value:  0.6
+  val_ratio: 
+    value:  0.2
+  n_input_periods: 
+    value:  6
+  n_output_periods: 
+    value:  6
+  batch_size: 
+    value: 1024
+  out_channels: 
+    value:  32
+  normalize: 
+    value:  true
+  device: 
+    value:  "gpu"
+  shuffle: 
+    value: 1
+  model_name: 
+    value:  "astgcn_customized"
+  dp_loaded:
+    value: ""
+  loss_function: 
+    value:  "mse"
+  ensemble:
+    value: 0
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 3
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 0
+  dp:
+    value: 0
+  sigma:
+    value: 1 # "Noise multiplier"
+  max_per_sample_grad_norm:
+    value: 1 # "Clip per-sample gradients to this norm"
+  delta:
+    value: 0.00001 # "Target delta"
+  secure_rng:
+    value: 0 # 1: True, 0: False
+  accountant:
+    value: 'rdp' # Accounting mechanism. Currently supported: - rdp (RDPAccountant) - gdp (GaussianAccountant) - prv (:class`~opacus.accountants.PRVAccountant`), default in Opacus is 'prv'
+  nb_block:
+    value: 2
+  K:
+    value: 3
+  nb_chev_filter:
+    value: 64
+  nb_time_filter:
+    value: 64
+  time_strides:
+    value: 1

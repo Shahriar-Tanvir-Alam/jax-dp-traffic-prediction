@@ -1,0 +1,77 @@
+method: grid
+name: multi-6-dp-optimal-g1-m2-3-c10-eps10
+metric:
+  name: best_val_loss
+  goal: minimize
+parameters:
+  dataset:
+    value: "speed_inflow_outflow"
+  company:
+    value: "c10"
+  data_name_path: 
+    value: "realtime=../data/realtime_nyc/*tlc_nyc_inflow=../data/tlc_nyc/fhvhv/*tlc_nyc_outflow=../data/tlc_nyc/fhvhv/"
+  ensemble:
+    value: 0 
+  learning_rate:
+    value: 0.01 
+  hidden: 
+    value: 0
+  val_step: 
+    value: 5
+  epochs: 
+    value: 100
+  optimizer: 
+    value: "adam"
+  train_ratio: 
+    value: 0.6
+  val_ratio: 
+    value: 0.2
+  n_input_periods: 
+    value: 6
+  n_output_periods: 
+    value: 6
+  batch_size: 
+    value: 256
+  out_channels: 
+    value: 32
+  normalize: 
+    value: true
+  device: 
+    value: "gpu"
+  shuffle: 
+    value:  1
+  model_name: 
+    value: "multiprediction_6"
+  dp_loaded:
+    value: ""
+  loss_function: 
+    value: "mse"
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 3
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 1
+  dp:
+    value: 2
+  epsilon:
+    value: 10 # "Target epsilon"
+  max_per_sample_grad_norm:
+    value: 0.1 # "Clip per-sample gradients to this norm"
+  sigma:
+    value: 1 # "Noise multiplier"
+  delta:
+    value: 0.00001 # "Target delta"
+  secure_rng:
+    value: 0 # 1: True, 0: False
+  accountant:
+    value: 'rdp' # Accounting mechanism. Currently supported: - rdp (RDPAccountant) - gdp (GaussianAccountant) - prv (:class`~opacus.accountants.PRVAccountant`), default in Opacus is 'prv'
+

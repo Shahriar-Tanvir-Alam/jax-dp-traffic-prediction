@@ -1,0 +1,69 @@
+method: grid
+name: sweep-multi-13-optimal-g1
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  dataset:
+    value: "speed_inflow_outflow"
+  data_name_path: 
+    value: "realtime=../data/realtime_nyc/*tlc_nyc_inflow=../data/tlc_nyc/fhvhv/*tlc_nyc_outflow=../data/tlc_nyc/fhvhv/"
+  ensemble:
+    value: 0 
+  learning_rate:
+    value: 0.001
+  hidden: 
+    value: 0
+  val_step: 
+    value: 50
+  epochs: 
+    value: 10000
+  optimizer: 
+    value: "adam"
+  train_ratio: 
+    value: 0.8
+  val_ratio: 
+    value: 0.1
+  n_input_periods: 
+    value: 6
+  n_output_periods: 
+    value: 6
+  batch_size: 
+    value: 1024
+  out_channels: 
+    value: 32
+  normalize: 
+    value: true
+  device: 
+    value: "gpu"
+  shuffle: 
+    value:  1
+  model_name: 
+    value: "multiprediction_13"
+  loss_function: 
+    value: "mse"
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 4
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 1
+  dp:
+    value: 0
+  sigma:
+    value: 1 # "Noise multiplier"
+  max_per_sample_grad_norm:
+    value: 1 # "Clip per-sample gradients to this norm"
+  delta:
+    value: 0.00001 # "Target delta"
+  secure_rng:
+    value: 0 # 1: True, 0: False
+

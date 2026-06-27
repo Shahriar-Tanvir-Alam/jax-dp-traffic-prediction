@@ -1,0 +1,4 @@
+inflow: ["MA3_S_I42", "MA3_S_I54_eps0.5", "MA3_S_I54_eps1", "MA3_S_I54_eps2.5", "MA3_S_I54_eps5", "MA3_S_I54_eps10", "MA3_S_I54_eps20"]
+outflow: ["MA3_S_O42", "MA3_S_O54_eps0.5", "MA3_S_O54_eps1", "MA3_S_O54_eps2.5", "MA3_S_O54_eps5", "MA3_S_O54_eps10", "MA3_S_O54_eps20"]
+# inflow: ["MA3_S_I42", "MA3_S_I54_eps0.5", "MA3_S_I54_eps1", "MA3_S_I54_eps2.5", "MA3_S_I54_eps5", "MA3_S_I54_eps10", "MA3_S_I54_eps20", "MA5_S_DP_I12_eps10.0", "MA5_S_DP_I12_eps5.0", "MA5_S_DP_I12_eps2.5", "MA5_S_DP_I12_eps0.5"]
+# outflow: ["MA3_S_O42", "MA3_S_O54_eps0.5", "MA3_S_O54_eps1", "MA3_S_O54_eps2.5", "MA3_S_O54_eps5", "MA3_S_O54_eps10", "MA3_S_O54_eps20", "MA5_S_DP_O12_eps10.0", "MA5_S_DP_O12_eps5.0", "MA5_S_DP_O12_eps2.5", "MA5_S_DP_O12_eps0.5"]

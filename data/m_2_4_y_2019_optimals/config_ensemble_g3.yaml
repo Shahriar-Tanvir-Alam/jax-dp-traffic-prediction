@@ -1,0 +1,70 @@
+method: grid
+name: sweep-ensemble-1-normalized-hidden0-batch-g3
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  dataset:
+    value: "speed_inflow_outflow"
+  config_paths: 
+    value: "realtime=../data/config_realtime_optimal_g3.yaml*tlc_nyc_inflow=../data/config_tlc_nyc_inflow_optimal.yaml*tlc_nyc_outflow=../data/config_tlc_nyc_outflow_optimal.yaml"
+  ensemble:
+    value: 1 # 1: predict speed, inflow, & outflow, 2: predict speed, 3: predict speed + add historical speed as a residual information 4: predict speed, add a graph layer upon model
+  learning_rate:
+    values: [0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001, 0.0000001]
+  hidden:  
+    value: 0
+  val_step: 
+    value:  50
+  epochs: 
+    value:  10000
+  optimizer: 
+    value:  "adam"
+  train_ratio: 
+    value:  0.8
+  val_ratio: 
+    value:  0.1
+  n_input_periods: 
+    value:  6
+  n_output_periods: 
+    value:  6
+  batch_size: 
+    value:  1024
+  out_channels: 
+    value:  32
+  normalize: 
+    value:  true
+  device: 
+    value:  "gpu"
+  shuffle: 
+    value:  1
+  model_name: 
+    value:  "ensemble"
+  loss_function: 
+    value:  "mse"
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 4
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 3
+  dp:
+    value: 1
+  sigma:
+    value: 1 # "Noise multiplier"
+  max_per_sample_grad_norm:
+    value: 1 # "Clip per-sample gradients to this norm"
+  delta:
+    value: 0.00001 # "Target delta"
+  secure_rng:
+    value: 0 # 1: True, 0: False
+  
+

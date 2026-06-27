@@ -1,0 +1,86 @@
+method: grid
+name: TEST-MA5_S_DP_I12_Uber_m2-3-b1024-DP60-eps20.0
+metric:
+  name: best_val_loss
+  goal: minimize
+parameters:
+  dataset:
+    value: "speed_inflow_outflow"
+  data_name_path: 
+    value: "realtime=../data/realtime_nyc/*tlc_nyc_inflow=../data/tlc_nyc/fhvhv/*tlc_nyc_outflow=../data/tlc_nyc/fhvhv/"
+  company:
+    values: ["uber_dp60_eps20.0", "lyft_dp60_eps20.0", "c90_dp60_eps20.0", "c80_dp60_eps20.0", "c70_dp60_eps20.0", "c60_dp60_eps20.0", "c2_50_dp60_eps20.0", "c1_50_dp60_eps20.0", "c40_dp60_eps20.0", "c30_dp60_eps20.0", "c20_dp60_eps20.0", "c10_dp60_eps20.0"] # ["c0.1_dp60", "c1_dp60", "c99_dp60", "c99.9_dp60"]  # ["c99.9_dp1440_eps10.0", "c99.9_dp60", "c99.9_dp60_eps5.0", "c99.9_dp60_eps2.5", "c99.9_dp60_eps0.5"] # ["c40_dp60", "c40_dp1440_eps10.0"] # ["c1_50_dp60", "c1_50_dp1440_eps10.0"] # "c95_dp60" # ["c90", "c80", "c70", "c60", "c2_50", "c1_50", "c40", "c30", "c20", "c10"] # values: "", "uber", "lyft", "c95", "c5", "c95_dp60"
+  ensemble:
+    value: 0 
+  learning_rate:
+    value: 0.01 #[0.01, 0.001, 0.0001, 0.00001] #, 0.000001]
+  hidden:  
+    value: 0
+  val_step: 
+    value: 1 #100
+  epochs: 
+    value: 1 #10000
+  optimizer: 
+    value: "adam"
+  train_ratio: 
+    value: 0.6
+  val_ratio: 
+    value: 0.2
+  n_input_periods: 
+    value: 6
+  n_output_periods: 
+    value: 6
+  batch_size:
+    value: 1024 # [32, 64, 128, 256, 512, 1024]
+  normalize: 
+    value: 1 ######
+  device:
+    value: "gpu"
+  shuffle: 
+    value: 1
+  model_name: 
+    values: ["MA5_S_DP_I12", "MA5_S_DP_O12"] # ["multiprediction_5", "multiprediction_6"] #####
+  dp_loaded:
+    value: "" #["eps0.5", "eps2.5"] #  "" # ["eps0.5", "eps1", "eps2.5", "eps5", "eps10", "eps20"] ######
+  loss_function: 
+    value: "mse"
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 3
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 1 
+  dp:
+    value: 0 # 0: Non-private, 1: Private using Opacus (make_private), 2: Private using Opacus (make_private_with_epsilon)
+  sigma:
+    value: 1 # "Noise multiplier"
+  max_per_sample_grad_norm:
+    value: 0.1 # [0.1, 1, 10] # [0.1, 0.4, 1.6, 6.4, 10] # "Clip per-sample gradients to this norm", Tuning MAX_GRAD_NORM is very important. Start with a low noise multiplier like .1, this should give comparable performance to a non-private model. Then do a grid search for the optimal MAX_GRAD_NORM.
+  delta:
+    value: 0.00001 # "Target delta". If # of samples<10000, we can use delat=10^-5
+  epsilon:
+    value: 1 # [0.5, 2.5] # 1 # [20, 10, 5, 1] # [10, 20] # [1, 10, 20, 10] # "Target epsilon"
+  secure_rng:
+    value: 0 # 1: True, 0: False
+  accountant:
+    value: 'rdp' # Accounting mechanism. Currently supported: - rdp (RDPAccountant) - gdp (GaussianAccountant) - prv (:class`~opacus.accountants.PRVAccountant`), default in Opacus is 'prv'
+  nb_block:
+    value: 2
+  K:
+    value: 3 # Number of neighbors in message passing
+  nb_chev_filter:
+    value: 64
+  nb_time_filter:
+    value: 64
+  time_strides:
+    value: 1
+  out_channels: 
+    value: 32

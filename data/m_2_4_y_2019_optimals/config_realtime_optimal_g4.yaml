@@ -1,0 +1,59 @@
+method: grid
+name: sweep-realtime-optimal-g4
+metric:
+  name: best_val_loss
+  goal: minimize
+parameters:
+  dataset: 
+    value: "realtime"
+  datapath: 
+    value: "../data/realtime_nyc/"
+  learning_rate:
+    value: 0.0001
+  hidden:  
+    value: 0
+  val_step: 
+    value: 50
+  epochs: 
+    value: 10000
+  optimizer: 
+    value:  "adam"
+  train_ratio: 
+    value:  0.8
+  val_ratio: 
+    value:  0.1
+  n_input_periods: 
+    value:  6
+  n_output_periods: 
+    value:  6
+  batch_size: 
+    value: 1024
+  out_channels: 
+    value:  32
+  normalize: 
+    value: true
+  device: 
+    value: "gpu"
+  shuffle: 
+    value: 1
+  model_name: 
+    value: "astgcn_customized"
+  loss_function: 
+    value: "mse"
+  ensemble:
+    value: 0
+  patience:
+    value: 500
+  year:
+    value: 2019
+  start_month:
+    value: 2
+  end_month:
+    value: 4
+  boroughs:
+    value: 'Q'
+  bucket_size:
+    value: '10min'
+  graph_version:
+    value: 4
+  

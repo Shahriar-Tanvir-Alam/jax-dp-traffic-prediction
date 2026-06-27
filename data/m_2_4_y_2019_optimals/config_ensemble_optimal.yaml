@@ -1,0 +1,46 @@
+method: grid
+name: sweep-ensemble
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  dataset:
+    value: "speed_inflow_outflow"
+  config_paths: 
+    value: "realtime=../data/config_realtime_optimal.yaml*tlc_nyc_inflow=../data/config_tlc_nyc_inflow_optimal.yaml*tlc_nyc_outflow=../data/config_tlc_nyc_outflow_optimal.yaml"
+  ensemble:
+    value: 1
+  learning_rate:
+    value: 0.00001
+  epochs: 
+    value:  10000
+  optimizer: 
+    value:  "adam"
+  train_ratio: 
+    value:  0.8
+  val_ratio: 
+    value:  0.1
+  val_step: 
+    value:  50
+  n_input_periods: 
+    value:  6
+  n_output_periods: 
+    value:  6
+  batch_size: 
+    value:  1000
+  out_channels: 
+    value:  32
+  normalize: 
+    value:  true
+  device: 
+    value:  "gpu"
+  shuffle: 
+    value:  false
+  model_name: 
+    value:  "ensemble"
+  loss_function: 
+    value:  "mse"
+  hidden: 
+    value:  0
+  patience:
+    value: 500
