@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+*.parquet
+*.csv.gz
+data/
+raw_data/
+
+# Logs/checkpoints
+*.zip
+*.pt
+*.pth
+*.pkl
+*.ckpt
+
+# macOS
+.DS_Store

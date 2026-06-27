@@ -1,0 +1,12 @@
+jax[cuda12]
+flax
+optax
+numpy
+pandas
+scikit-learn
+pyarrow
+matplotlib
+opacus
+torch
+torchvision
+torchaudio
