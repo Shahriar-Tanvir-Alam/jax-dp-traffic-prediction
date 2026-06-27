@@ -440,7 +440,7 @@ def main():
     if run_mode == "debug":
         # CPU debug mode on laptop
         # Keep this small so PyCharm/Mac CPU can test the code quickly.
-        config_dict["epochs"] = 1
+        config_dict["parameters"]["epochs"]["value"] = int(os.environ.get("JAX_EPOCHS", "1"))
         config_dict["batch_size"] = 4
     else:
         print("JAX_RUN_MODE=full: using original YAML/paper experiment settings.")
@@ -456,7 +456,7 @@ def main():
     # Training settings
     # -----------------------------------------------------
     if run_mode == "debug":
-        config.epochs = 1
+        config.epochs = int(os.environ.get("JAX_EPOCHS", "1"))
 
     # DP-SGD is memory-heavy because it computes per-sample gradients.
     # Therefore, use smaller batch size for this first private run.
