@@ -52,11 +52,16 @@ def train(config=None):
     # Fix randomization
     set_seed(5)
     
-    # Initialize a new wandb run
-#     with wandb.init(config=config, mode="disabled"): # Use if wandb should be disabled
-    with wandb.init(config=config): # Use if wandb should be active
-        wandb.init() # Initialize wandb
-        config = wandb.config # configuration of the run
+    # Fixed offline run: bypass W&B sweep/config overwrite
+    if isinstance(config, dict):
+        from types import SimpleNamespace
+        config = SimpleNamespace(**config)
+
+    class _DummyRun:
+        def __enter__(self): return self
+        def __exit__(self, exc_type, exc, tb): return False
+
+    with _DummyRun():
         device = torch.device('cpu') if config.device.lower()=='cpu' else get_device() # Select CPU/GPU device
         print(f"Device being used: {device}")
         

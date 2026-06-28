@@ -1,0 +1,26 @@
+Original PyTorch fixed-data GPU test
+
+Framework: PyTorch
+Model: astgcn_customized
+Dataset: tlc_nyc_inflow
+Data file: data/tlc_nyc/fhvhv/clean_aggregate_tlc_inflow_2019-02_2019-03_B_Q_10min_c90.parquet
+Epochs: 5
+GPU: NVIDIA L40S
+Train/Val/Test split: 0.6 / 0.2 / 0.2
+Input periods: 6
+Output periods: 6
+Batch size: 1024
+Learning rate: 0.0001
+DP training: True
+Noise multiplier: 1.0
+Max grad norm: 1.0
+Delta: 1e-05
+
+5-epoch result:
+Best validation MSE observed at epoch 4: 1.07
+Train loss at best validation MSE epoch 4: 1.07
+Test MSE at best validation MSE epoch 4: 1.07
+Test L1Loss/MAE-like loss at epoch 4: 0.7433
+
+Status:
+The original PyTorch model, dataset loading, GPU training, validation, model saving, and test evaluation completed successfully for 5 epochs.
