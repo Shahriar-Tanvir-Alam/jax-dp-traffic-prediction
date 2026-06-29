@@ -61,3 +61,7 @@ scripts/data
 # Local PyTorch implementation copy
 Pytorch Implementation/
 Pytorch_Implementation.tar.gz
+
+# Old standalone PyTorch-only result files
+results/pytorch_gpu_1000_metrics_9709238.txt
+results/pytorch_gpu_1000_summary_9709238.txt
