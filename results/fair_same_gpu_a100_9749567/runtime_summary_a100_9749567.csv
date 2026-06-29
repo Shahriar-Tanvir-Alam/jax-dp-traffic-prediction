@@ -1,0 +1,11 @@
+metric,value
+job_id,9749567
+hostname,b05-14.hpc.usc.edu
+dataset,tlc_nyc_inflow
+gpu_requested,a100
+epochs_each,1000
+pytorch_runtime_seconds,1092
+jax_runtime_seconds,2425
+total_runtime_seconds,3521
+pytorch_exit_code,0
+jax_exit_code,0

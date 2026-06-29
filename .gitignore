@@ -25,3 +25,39 @@ raw_data/
 
 # Large pretrained/saved model files
 models/
+
+# Environments
+jax_gpu_env/
+__pycache__/
+*.pyc
+
+# Large data/model files
+data/
+models/
+*.pt
+*.pth
+*.ckpt
+*.parquet
+
+# Runtime caches
+.wandb/
+wandb/
+
+# Temporary experiment folders/files
+Fair_Comparison_Same_GPU_1000/
+logs/
+*.slurm
+*.err
+*.out
+*.log
+*.tar.gz
+
+# Local backups
+torch_geometric_local_backup/
+torch_geometric_temporal_local_backup/
+scripts/*.bak_before_fixed_pytorch
+scripts/data
+
+# Local PyTorch implementation copy
+Pytorch Implementation/
+Pytorch_Implementation.tar.gz

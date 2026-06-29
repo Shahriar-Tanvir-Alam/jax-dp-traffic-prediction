@@ -1,0 +1,36 @@
+FAIR SAME-GPU A100 COMPARISON
+=============================
+
+Job ID: 9749567
+Node: b05-14.hpc.usc.edu
+GPU: NVIDIA A100 80GB PCIe
+Dataset: tlc_nyc_inflow
+Epochs: 1000
+Batch size: 4
+Private training: True
+Noise multiplier sigma: 1.0
+Max grad norm: 1.0
+Delta: 1e-05
+
+PyTorch GPU Results
+-------------------
+Runtime seconds: 1092
+Test MSE: 0.1427
+Test L1/MAE: 0.2557
+Best validation MSE epoch: 999
+Best validation MSE: 0.15
+Exit code: 0
+
+JAX GPU Results
+---------------
+Runtime seconds: 2425
+Final test MSE: 0.26792263984680176
+Final test RMSE: 0.5176124572753906
+Final test MAE: 0.31854090094566345
+Final test MAPE: 162.00039672851562 %
+Final epsilon: 5.643493013110433
+Exit code: 0
+
+Conclusion
+----------
+On the same A100 GPU and same TLC NYC inflow dataset, the original PyTorch GPU implementation was faster and achieved lower test error than the current JAX GPU implementation. The JAX GPU implementation successfully runs DP-SGD with RDP privacy accounting, but further optimization is needed before it can outperform PyTorch GPU.
